@@ -1,3 +1,6 @@
+# Pycharm config files
+.idea
+
 # Local .terraform directories
 **/.terraform/*
 
