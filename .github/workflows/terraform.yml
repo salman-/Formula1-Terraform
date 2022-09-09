@@ -50,3 +50,7 @@ jobs:
       - name: Terraform Plan
         run: terraform plan -input=false
         working-directory: ${{env.ROOT_PATH}}
+
+      - name: Terraform Apply
+        run: terraform apply -auto-approve
+        working-directory: ${{env.ROOT_PATH}}
