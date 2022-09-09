@@ -36,15 +36,6 @@ jobs:
         with:
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
-      - name: Update ubuntu
-        run: sudo apt-get update
-
-      #- name: Download azure cli
-      #  run: sudo apt-get install azure
-
-      #- name: Check Azure user
-      #  run: az ad signed-in-user show
-
       # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
       - name: Terraform Init
         run: terraform init
