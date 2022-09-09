@@ -51,6 +51,10 @@ jobs:
         run: terraform plan -input=false
         working-directory: ${{env.ROOT_PATH}}
 
+      - name: Import state of Resource-Group
+        run: terraform import azurerm_resource_group.state_resource_group "/subscriptions/${{env.ARM_SUBSCRIPTION_ID}}/resourceGroups/RG-Terraform-on-Azure"
+        working-directory: ${{env.ROOT_PATH}}
+
       - name: Terraform Apply
         run: terraform apply -auto-approve
         working-directory: ${{env.ROOT_PATH}}
