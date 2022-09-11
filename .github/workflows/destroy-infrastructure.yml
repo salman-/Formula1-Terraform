@@ -3,7 +3,7 @@
 # `terraform init`, `terraform fmt`, and `terraform plan` (speculative plan via Terraform Cloud). On push events
 # to the "main" branch, `terraform apply` will be executed.
 
-name: 'Provision infrastructure in Azure'
+name: 'Destroy infrastructure'
 
 on: [ workflow_dispatch ]
 
