@@ -1,6 +1,6 @@
 # basic-price-predictor
 
-Steps to create a IAS based on this repository:
+Steps to create a IAC based on this repository:
 
 1. Create a Active Directory and assign a Service Principal role to using the below command:
 
