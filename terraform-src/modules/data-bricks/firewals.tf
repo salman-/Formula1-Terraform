@@ -1,7 +1,7 @@
 resource "azurerm_network_security_group" "private_empty_nsg" {
   name                = "firewall-private"
-  location            = azurerm_resource_group.demo.location
-  resource_group_name = azurerm_resource_group.demo.name
+  location            = var.resource_group_location
+  resource_group_name = var.resource_group_name
 }
 
 resource "azurerm_subnet_network_security_group_association" "private_nsg_asso" {
@@ -11,8 +11,8 @@ resource "azurerm_subnet_network_security_group_association" "private_nsg_asso" 
 
 resource "azurerm_network_security_group" "public_empty_nsg" {
   name                = "firewall-public"
-  location            = azurerm_resource_group.demo.location
-  resource_group_name = azurerm_resource_group.demo.name
+  location            = var.resource_group_location
+  resource_group_name = var.resource_group_name
 }
 
 resource "azurerm_subnet_network_security_group_association" "public_nsg_asso" {
