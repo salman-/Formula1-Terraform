@@ -53,6 +53,11 @@ jobs:
         run: terraform plan -input=false
         working-directory: ${{env.ROOT_PATH}}
 
+      # Get Terraform modules
+      - name: Terraform GET
+        run: terraform get
+        working-directory: ${{env.ROOT_PATH}}
+
       - name: Import state of Resource-Group
         run: terraform import azurerm_resource_group.main_resource_group "/subscriptions/${{env.ARM_SUBSCRIPTION_ID}}/resourceGroups/RG-Terraform-on-Azure"
         working-directory: ${{env.ROOT_PATH}}
