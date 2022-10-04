@@ -16,6 +16,6 @@ resource "azurerm_mssql_server" "sql_server_for_price_prediction" {
 resource "azurerm_mssql_database" "sql_database_for_price_prediction" {
   name         = "sqldatabaseforforex"
   server_id    = azurerm_mssql_server.sql_server_for_price_prediction.id
-  max_size_gb  = 4
+  max_size_gb  = 2
   sku_name     = "basic"
 }
