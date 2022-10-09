@@ -1,7 +1,7 @@
 resource "azurerm_subnet" "private_snet" {
-  name                 = "subnet-private"
+  name                 = "${local.prefix}-subnet-private"
   resource_group_name  = var.resource_group_name
-  virtual_network_name = azurerm_virtual_network.test_vnet.name
+  virtual_network_name = var.vnet_name
   address_prefixes     = ["10.0.1.0/24"]
 
   delegation {
@@ -14,9 +14,9 @@ resource "azurerm_subnet" "private_snet" {
 }
 
 resource "azurerm_subnet" "public_snet" {
-  name                 = "subnet-public"
+  name                 = "${local.prefix}-subnet-public"
   resource_group_name  = var.resource_group_name
-  virtual_network_name = azurerm_virtual_network.test_vnet.name
+  virtual_network_name = var.vnet_name
   address_prefixes     = ["10.0.2.0/24"]
 
   delegation {

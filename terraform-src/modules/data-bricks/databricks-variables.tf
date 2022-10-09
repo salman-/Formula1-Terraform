@@ -20,5 +20,14 @@ variable "datalake_name" {
 
 variable "vnet_name" {
   type = string
-  default = "diconiumdatabricks"
+  default = "my-vnet"
+}
+
+variable "virtual_network_id" {
+  type =string
+  default = "To be set"
+}
+
+locals {
+  prefix = "Databricks"
 }
