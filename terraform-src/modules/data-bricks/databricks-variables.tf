@@ -29,5 +29,5 @@ variable "virtual_network_id" {
 }
 
 locals {
-  prefix = "Databricks"
+  prefix = "databricks"
 }
