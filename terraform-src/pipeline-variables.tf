@@ -15,5 +15,5 @@ variable "prefix" {
 
 variable "vnet_name" {
   type = string
-  default = "General-Virtual_Network"
+  default = "General-Virtual-Network"
 }
