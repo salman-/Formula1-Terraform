@@ -19,12 +19,12 @@ variable "datalake_name" {
 }
 
 variable "vnet_name" {
-  type = string
+  type    = string
   default = "my-vnet"
 }
 
 variable "virtual_network_id" {
-  type =string
+  type    = string
   default = "To be set"
 }
 

@@ -12,3 +12,22 @@ variable "storage_account_name" {
   type    = string
   default = "forexpricestorageaccount"
 }
+
+variable "datalake_name" {
+  type    = string
+  default = "datalake"
+}
+
+variable "vnet_name" {
+  type = string
+  default = "my-vnet"
+}
+
+variable "virtual_network_id" {
+  type =string
+  default = "To be set"
+}
+
+locals {
+  prefix = "datafactory"
+}
