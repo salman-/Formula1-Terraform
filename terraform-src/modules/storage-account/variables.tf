@@ -8,12 +8,26 @@ variable "resource_group_location" {
   default = "West Europe"
 }
 
-variable "storage_account_name" {
+variable "container_name" {
   type    = string
-  default = "forexpricestorageaccount"
+  default = "pandemicstorageaccount"
 }
 
 variable "datalake_name" {
   type    = string
   default = "datalake"
+}
+
+variable "vnet_name" {
+  type    = string
+  default = "my-vnet"
+}
+
+variable "virtual_network_id" {
+  type    = string
+  default = "To be set"
+}
+
+locals {
+  prefix = "datalake"
 }
