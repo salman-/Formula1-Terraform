@@ -15,7 +15,7 @@ variable "container_name" {
 
 variable "datalake_name" {
   type    = string
-  default = "datalake"
+  default = "rawpandemicdata"
 }
 
 variable "vnet_name" {
