@@ -1,4 +1,4 @@
-# basic-price-predictor
+# pandemic
 
 Steps to create a IAS (Infrastructure As Service) based on this repository:
 
