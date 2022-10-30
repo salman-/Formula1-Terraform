@@ -11,7 +11,7 @@ resource "azurerm_resource_group" "main_resource_group" {
 module "storage_account" {
   source           = "./modules/storage-account"
   vnet_name        = azurerm_virtual_network.virtual_network.name
-  subnet_ip_prefix = "10.0.1.0/24"
+  //subnet_ip_prefix = "10.0.1.0/24"
 }
 
 module "datafactory" {
@@ -25,7 +25,7 @@ module "databricks" {
   resource_group_location = azurerm_resource_group.main_resource_group.location
   virtual_network_id      = azurerm_virtual_network.virtual_network.id
   vnet_name               = azurerm_virtual_network.virtual_network.name
-  subnet_ip_prefix        = "10.0.2.0/24"
+  //subnet_ip_prefix        = "10.0.2.0/24"
 }
 
 /*
