@@ -27,3 +27,7 @@ variable "virtual_network_id" {
   type    = string
   default = "To be set"
 }
+
+variable "subnet_ip_prefix" {
+  default = "10.0.2.0/24"
+}
