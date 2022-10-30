@@ -31,7 +31,7 @@ resource "azurerm_storage_container" "config_file_container" {
 }
 
 resource "azurerm_storage_blob" "url_of_csv_data" {
-  name                   = "config-file-data"
+  name                   = "ecdc_file_list.json"
   storage_account_name   = azurerm_storage_account.storage_account.name
   storage_container_name = azurerm_storage_container.config_file_container.name
   type                   = "Block"
