@@ -27,7 +27,3 @@ variable "virtual_network_id" {
   type    = string
   default = "To be set"
 }
-
-locals {
-  prefix = "databricks"
-}
