@@ -24,7 +24,7 @@ resource "azurerm_storage_data_lake_gen2_filesystem" "data_lake_storage" {
 resource "azurerm_storage_container" "config_file_container" {
   name                  = "urlofdatafiles"
   storage_account_name  = azurerm_storage_account.storage_account.name
-  container_access_type = "private"
+  container_access_type = "public"
 
   lifecycle {
     prevent_destroy = true
