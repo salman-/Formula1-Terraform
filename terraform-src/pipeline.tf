@@ -10,6 +10,7 @@ resource "azurerm_resource_group" "main_resource_group" {
 
 module "storage_account" {
   source = "./modules/storage-account"
+  vnet_name = azurerm_virtual_network.virtual_network.name
 }
 
 module "datafactory" {
