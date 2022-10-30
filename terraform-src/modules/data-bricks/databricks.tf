@@ -1,4 +1,4 @@
-resource "azurerm_databricks_workspace" "forex_price_databricks" {
+resource "azurerm_databricks_workspace" "pandemic_databricks" {
   name                = "pandemic-databricks"
   location            = var.resource_group_location
   resource_group_name = var.resource_group_name
