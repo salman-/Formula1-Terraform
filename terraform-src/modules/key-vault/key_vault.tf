@@ -35,26 +35,26 @@ resource "azurerm_key_vault" "key_vault" {
 }
 
 resource "azurerm_key_vault_secret" "client_id" {
-  name         = "clientId"
+  name         = "client-id"
   value        = var.client_id
   key_vault_id = azurerm_key_vault.key_vault.id
 }
 
 resource "azurerm_key_vault_secret" "client_secret" {
-  name         = "clientSecret"
+  name         = "client-secret"
   value        = var.client_secret
   key_vault_id = azurerm_key_vault.key_vault.id
 
 }
 
 resource "azurerm_key_vault_secret" "subscription_id" {
-  name         = "subscriptionId"
+  name         = "subscription-id"
   value        = var.subscription_id
   key_vault_id = azurerm_key_vault.key_vault.id
 }
 
 resource "azurerm_key_vault_secret" "tenant_id" {
-  name         = "tenantId"
+  name         = "tenant-id"
   value        = var.tenant_id
   key_vault_id = azurerm_key_vault.key_vault.id
 }
