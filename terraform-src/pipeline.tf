@@ -47,7 +47,8 @@ module "databricks" {
 module "keyvault" {
   source = "./modules/key-vault"
 
-  vnet_name       = module.virtual_network.virtual_network_name
+  vnet_name          = module.virtual_network.virtual_network_name
+
   keyvault_name   = "formuleeinsvault"
   subnet_ip_range = "10.0.4.0/24"
 
