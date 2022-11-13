@@ -19,7 +19,7 @@ jobs:
     scriptType: pscore
     steps:
       - name: Log in with Azure
-        uses: azure/login@v1
+        uses: azure/login@v2
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
       #- name: Purge key-vault using azure cli script
@@ -28,6 +28,6 @@ jobs:
       #    inlineScript: az keyvault purge --name ${{env.KEY_VAULT_NAME}} --location ${{env.LOCATION}}
 
       - name: Delete all resources using azure cli script
-        uses: azure/CLI@v1
+        uses: azure/CLI@v2
         with:
           inlineScript: az resource list --resource-group ${{env.RESOURCE_GROUP}} | ConvertFrom-Json | Foreach-Object { az resource delete --resource-group ${{env.RESOURCE_GROUP}} --ids $_.id --verbose}
