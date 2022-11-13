@@ -31,6 +31,5 @@ jobs:
         uses: azure/powershell@v1
         with:
           inlineScript: |
-            az resource list --resource-group ${{env.RESOURCE_GROUP}} \
-            | ConvertFrom-Json | Foreach-Object { az resource delete --resource-group ${{env.RESOURCE_GROUP}} --ids $_.id --verbose}
+            az resource list --resource-group ${{env.RESOURCE_GROUP}} | ConvertFrom-Json | Foreach-Object { az resource delete --resource-group ${{env.RESOURCE_GROUP}} --ids $_.id --verbose}
           azPSVersion: "latest"
