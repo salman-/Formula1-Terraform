@@ -5,13 +5,13 @@
 
 name: 'Delete all resources using az cli'
 
-on: [ push, pull_request, workflow_dispatch ]
+on: [ workflow_dispatch ]
 
 
 env:
   KEY_VAULT_NAME: 'formuleeinsvault'
   LOCATION: 'WestEurope'
-  RESOURCE_GROUP : 'RG-Terraform-on-Azure'
+  RESOURCE_GROUP: 'RG-Terraform-on-Azure'
 
 jobs:
   delete-all-resources:
@@ -31,6 +31,6 @@ jobs:
         uses: azure/powershell@v1
         with:
           inlineScript: |
-              az resource list --resource-group ${{env.RESOURCE_GROUP}} \
-              | ConvertFrom-Json | Foreach-Object {sudo az resource delete --resource-group ${{env.RESOURCE_GROUP}} --ids $_.id --verbose}
+            az resource list --resource-group ${{env.RESOURCE_GROUP}} \
+            | ConvertFrom-Json | Foreach-Object { az resource delete --resource-group ${{env.RESOURCE_GROUP}} --ids $_.id --verbose}
           azPSVersion: "latest"
