@@ -9,6 +9,7 @@ on: [ push, pull_request, workflow_dispatch ]
 
 
 env:
+  KEY_VAULT_NAME: 'formuleeinsvault'
   LOCATION: 'WestEurope'
   RESOURCE_GROUP : 'RG-Terraform-on-Azure'
 
@@ -20,6 +21,11 @@ jobs:
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - name: Purge key-vault using azure cli script
+        uses: azure/powershell@v1
+        with:
+          inlineScript: sudo az keyvault purge --name ${{env.KEY_VAULT_NAME}} --location ${{env.LOCATION}}
+          azPSVersion: "latest"
 
       - name: Delete all resources using azure cli script
         uses: azure/powershell@v1
