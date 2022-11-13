@@ -24,13 +24,13 @@ jobs:
       - name: Purge key-vault using azure cli script
         uses: azure/powershell@v1
         with:
-          inlineScript: sudo az keyvault purge --name ${{env.KEY_VAULT_NAME}} --location ${{env.LOCATION}}
+          inlineScript: az keyvault purge --name ${{env.KEY_VAULT_NAME}} --location ${{env.LOCATION}}
           azPSVersion: "latest"
 
       - name: Delete all resources using azure cli script
         uses: azure/powershell@v1
         with:
           inlineScript: |
-              sudo az resource list --resource-group ${{env.RESOURCE_GROUP}} \
+              az resource list --resource-group ${{env.RESOURCE_GROUP}} \
               | ConvertFrom-Json | Foreach-Object {sudo az resource delete --resource-group ${{env.RESOURCE_GROUP}} --ids $_.id --verbose}
           azPSVersion: "latest"
