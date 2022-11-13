@@ -7,7 +7,7 @@ resource "azurerm_key_vault" "key_vault" {
   enabled_for_disk_encryption = true
   tenant_id                   = data.azurerm_client_config.current.tenant_id
 
-  purge_protection_enabled   = false
+  purge_protection_enabled = false
 
   sku_name = "standard"
 
@@ -18,6 +18,8 @@ resource "azurerm_key_vault" "key_vault" {
     key_permissions = [
       "Create",
       "Get",
+      "Delete",
+      "Purge",
     ]
 
     secret_permissions = [
