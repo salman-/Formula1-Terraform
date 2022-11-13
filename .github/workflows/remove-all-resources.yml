@@ -21,10 +21,10 @@ jobs:
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
-      - name: Purge key-vault using azure cli script
-        uses: azure/CLI@v1
-        with:
-          inlineScript: az keyvault purge --name ${{env.KEY_VAULT_NAME}} --location ${{env.LOCATION}}
+      #- name: Purge key-vault using azure cli script
+      #  uses: azure/CLI@v1
+      #  with:
+      #    inlineScript: az keyvault purge --name ${{env.KEY_VAULT_NAME}} --location ${{env.LOCATION}}
 
       - name: Delete all resources using azure cli script
         uses: azure/CLI@v1
