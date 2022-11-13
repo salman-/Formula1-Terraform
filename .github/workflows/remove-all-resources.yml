@@ -16,6 +16,7 @@ env:
 jobs:
   delete-all-resources:
     runs-on: ubuntu-latest
+    scriptType: pscore
     steps:
       - name: Log in with Azure
         uses: azure/login@v1
