@@ -15,6 +15,7 @@ env:
   ARM_TENANT_ID: ${{secrets.AZURE_TENANT_ID}}
   ROOT_PATH: '${{github.workspace}}/terraform-src'
   NUMBER_OF_CONCURRENT_THREADS: 5
+  KEY_VAULT_NAME: 'formuleeinsvault'
 
 jobs:
   build-and-deploy:
@@ -25,10 +26,9 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: Azure CLI script
+      - name: Delete Key-vault using azure cli script
         uses: azure/CLI@v1
         with:
           azcliversion: 2.0.72
           inlineScript: |
-            az account show
-            az storage -h
+            az keyvault purge --name ${{env.KEY_VAULT_NAME}}
