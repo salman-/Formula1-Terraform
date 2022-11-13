@@ -17,7 +17,7 @@ variable "subnet_ip_range" {
 }
 
 variable "keyvault_name" {
-  default = "formuleeinsvault"
+  type =string
 }
 
 variable "client_id_value" {
