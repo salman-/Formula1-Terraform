@@ -14,7 +14,7 @@ env:
   RESOURCE_GROUP : 'RG-Terraform-on-Azure'
 
 jobs:
-  build-and-deploy:
+  delete-all-resources:
     runs-on: ubuntu-latest
     steps:
       - name: Log in with Azure
