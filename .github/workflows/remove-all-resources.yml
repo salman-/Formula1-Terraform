@@ -32,5 +32,4 @@ jobs:
         with:
           azcliversion: 2.0.72
           inlineScript: |
-            az set account ${{env.AZURE_SUBSCRIPTION_ID}}
             az keyvault purge --name ${{env.KEY_VAULT_NAME}} --location ${{env.LOCATION}}
