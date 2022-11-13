@@ -16,7 +16,7 @@ env:
   ROOT_PATH: '${{github.workspace}}/terraform-src'
   NUMBER_OF_CONCURRENT_THREADS: 5
   KEY_VAULT_NAME: 'formuleeinsvault'
-  LOCATION: 'West Europe'
+  LOCATION: 'WestEurope'
 
 jobs:
   build-and-deploy:
