@@ -27,3 +27,4 @@ jobs:
           inlineScript: |
               sudo az resource list --resource-group ${{env.RESOURCE_GROUP}} \
               | ConvertFrom-Json | Foreach-Object {sudo az resource delete --resource-group ${{env.RESOURCE_GROUP}} --ids $_.id --verbose}
+          azPSVersion: "latest"
