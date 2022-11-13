@@ -24,7 +24,7 @@ jobs:
       - name: Purge key-vault using azure cli script
         uses: azure/CLI@v1
         with:
-          inlineScript: sudo az keyvault purge --name ${{env.KEY_VAULT_NAME}} --location ${{env.LOCATION}}
+          inlineScript: az keyvault purge --name ${{env.KEY_VAULT_NAME}} --location ${{env.LOCATION}}
           azPSVersion: "latest"
 
       - name: Delete all resources using azure cli script
