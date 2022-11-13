@@ -16,6 +16,7 @@ env:
   ROOT_PATH: '${{github.workspace}}/terraform-src'
   NUMBER_OF_CONCURRENT_THREADS: 5
   KEY_VAULT_NAME: 'formuleeinsvault'
+  LOCATION: 'West Europe'
 
 jobs:
   build-and-deploy:
@@ -31,4 +32,4 @@ jobs:
         with:
           azcliversion: 2.0.72
           inlineScript: |
-            az keyvault purge --name ${{env.KEY_VAULT_NAME}}
+            az keyvault purge --name ${{env.KEY_VAULT_NAME}} --location ${{env.LOCATION}}
