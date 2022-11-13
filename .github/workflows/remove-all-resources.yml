@@ -27,6 +27,9 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
+      - name: Get latest updates
+        run: sudo apt-get update
+
       - name: Delete Key-vault using azure cli script
         uses: azure/CLI@v1
         with:
