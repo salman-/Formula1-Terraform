@@ -25,11 +25,8 @@ jobs:
         uses: azure/CLI@v1
         with:
           inlineScript: az keyvault purge --name ${{env.KEY_VAULT_NAME}} --location ${{env.LOCATION}}
-          azPSVersion: "latest"
 
       - name: Delete all resources using azure cli script
         uses: azure/CLI@v1
         with:
-          inlineScript: |
-            az resource list --resource-group ${{env.RESOURCE_GROUP}} | ConvertFrom-Json | Foreach-Object { az resource delete --resource-group ${{env.RESOURCE_GROUP}} --ids $_.id --verbose}
-          azPSVersion: "latest"
+          inlineScript: az resource list --resource-group ${{env.RESOURCE_GROUP}} | ConvertFrom-Json | Foreach-Object { az resource delete --resource-group ${{env.RESOURCE_GROUP}} --ids $_.id --verbose}
