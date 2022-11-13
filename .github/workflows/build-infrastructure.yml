@@ -14,7 +14,7 @@ env:
   ARM_SUBSCRIPTION_ID: ${{secrets.AZURE_SUBSCRIPTION_ID}}
   ARM_TENANT_ID: ${{secrets.AZURE_TENANT_ID}}
   ROOT_PATH: '${{github.workspace}}/terraform-src'
-  NUMBER_OF_CONCURRENT_THREADS : 5
+  NUMBER_OF_CONCURRENT_THREADS: 5
 
 jobs:
   terraform:
@@ -37,6 +37,14 @@ jobs:
         uses: hashicorp/setup-terraform@v1
         with:
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+
+      - name: Azure CLI script
+        uses: azure/CLI@v1
+        with:
+          azcliversion: 2.0.72
+          inlineScript: |
+            az account show
+            az storage -h
 
       # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
       - name: Terraform Init
