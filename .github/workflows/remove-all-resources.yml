@@ -28,7 +28,7 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Delete Key-vault using azure cli script
-        uses: azure/CLI@v1
+        uses: azure/powershell@v1
         with:
           azcliversion: 2.0.72
           inlineScript: |
