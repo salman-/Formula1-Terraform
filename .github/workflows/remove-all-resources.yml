@@ -28,12 +28,9 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Delete Key-vault using azure cli script
-        uses: azure/powershell@v1
+        uses: azure/CLI@v1
         with:
           azcliversion: 2.0.72
-          run: |
-            $resources = az resource list --resource-group myResourceGroup | ConvertFrom-Json
-
-            foreach ($resource in $resources) {
-                az resource delete --resource-group myResourceGroup --ids $resource.id --verbose
-            }
+          inlineScript: |
+            az set account ${{env.AZURE_SUBSCRIPTION_ID}}
+            az keyvault purge --name ${{env.KEY_VAULT_NAME}} --location ${{env.LOCATION}}
