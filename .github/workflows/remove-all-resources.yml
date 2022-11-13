@@ -17,6 +17,7 @@ env:
   NUMBER_OF_CONCURRENT_THREADS: 5
   KEY_VAULT_NAME: 'formuleeinsvault'
   LOCATION: 'WestEurope'
+  RESOURCE_GROUP : 'RG-Terraform-on-Azure'
 
 jobs:
   build-and-deploy:
@@ -31,8 +32,6 @@ jobs:
         run: sudo apt-get update
 
       - name: Delete Key-vault using azure cli script
-        uses: azure/CLI@v1
-        with:
-          azcliversion: 2.0.72
-          inlineScript: |
-            az group delete --name 'RG-Terraform-on-Azure'
+        run: |
+          az resource list --resource-group ${{env.RESOURCE_GROUP}} \
+          | ConvertFrom-Json | Foreach-Object {az resource delete --resource-group ${{env.RESOURCE_GROUP}} --ids $_.id --verbose}
