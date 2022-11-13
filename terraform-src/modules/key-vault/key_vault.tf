@@ -34,7 +34,7 @@ resource "azurerm_key_vault" "key_vault" {
   }
 
 }
-
+/*
 resource "azurerm_key_vault_secret" "client_id" {
   name         = "client-id"
   value        = var.client_id_value
@@ -57,4 +57,4 @@ resource "azurerm_key_vault_secret" "tenant_id" {
   name         = "tenant-id"
   value        = var.tenant_id_value
   key_vault_id = azurerm_key_vault.key_vault.id
-}
+} */
