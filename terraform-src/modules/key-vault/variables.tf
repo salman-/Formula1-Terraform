@@ -8,13 +8,6 @@ variable "resource_group_location" {
   default = "West Europe"
 }
 
-variable "vnet_name" {
-  type = string
-}
-
-variable "subnet_ip_range" {
-  type =string
-}
 
 variable "keyvault_name" {
   type =string
