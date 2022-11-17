@@ -25,3 +25,10 @@ variable "storage_account_name" {
 variable "network_ip_range" {
   default = ""
 }
+
+variable "username" {
+  default = ""
+}
+variable "password" {
+  default = ""
+}
