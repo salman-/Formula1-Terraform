@@ -46,7 +46,6 @@ module "databricks" {
   virtual_network_id      = module.virtual_network.virtual_network_id
   vnet_name               = module.virtual_network.virtual_network_name
   databricks_name         = "formula1-databricks"
-  subnet_ip_prefix        = "10.0.3.0/24"
 }
 
 module "datafactory" {
