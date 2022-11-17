@@ -1,6 +1,6 @@
 
 resource "azurerm_mssql_server" "sql_server_for_price_prediction" {
-  name                         = "${local.prefix_database_server}-forex-price"
+  name                         = "${local.prefix_database_server}-pandemic"
   resource_group_name          = var.resource_group_name
   location                     = var.resource_group_location
   version                      = "12.0"
