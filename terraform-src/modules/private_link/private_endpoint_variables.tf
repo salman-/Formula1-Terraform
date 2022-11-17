@@ -21,7 +21,7 @@ variable "private_link_enabled_resource_id" {
 }
 
 variable "subresource_names" {
-  type = list
+  type = list(string)
 }
 
 variable "virtual_network_id" {
