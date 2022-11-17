@@ -1,13 +1,15 @@
-resource "azurerm_windows_virtual_machine" "test_virtual_machine" {
-  name                  = "vm"
-  location              = var.resource_group_location
-  resource_group_name   = var.resource_group_name
-  size                  = "Standard_F2"
-  admin_username        = "adminuser"
-  admin_password        = "P@$$w0rd1234!"
-  network_interface_ids = [
+resource "azurerm_linux_virtual_machine" "example" {
+  name                            = "example-machine"
+  location                        = var.resource_group_location
+  resource_group_name             = var.resource_group_name
+  size                            = "Standard_F2"
+  admin_username                  = var.username
+  admin_password                  = var.password
+  disable_password_authentication = false
+  network_interface_ids           = [
     azurerm_network_interface.virtual_machine_network_interface.id,
   ]
+
 
   os_disk {
     caching              = "ReadWrite"
@@ -15,9 +17,9 @@ resource "azurerm_windows_virtual_machine" "test_virtual_machine" {
   }
 
   source_image_reference {
-    publisher = "MicrosoftWindowsServer"
-    offer     = "WindowsServer"
-    sku       = "2016-Datacenter"
+    publisher = "Canonical"
+    offer     = "UbuntuServer"
+    sku       = "16.04-LTS"
     version   = "latest"
   }
 }
