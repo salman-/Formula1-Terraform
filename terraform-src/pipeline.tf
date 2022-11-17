@@ -43,22 +43,18 @@ module "databricks" {
 
   resource_group_name     = azurerm_resource_group.main_resource_group.name
   resource_group_location = azurerm_resource_group.main_resource_group.location
-  virtual_network_id      = module.virtual_network.virtual_network_id
-  vnet_name               = module.virtual_network.virtual_network_name
+
   databricks_name         = "formula1-databricks"
 }
 
 module "datafactory" {
   source = "./modules/data-factory"
 }
-/*
+
 module "keyvault" {
   source = "./modules/key-vault"
 
-  vnet_name = module.virtual_network.virtual_network_name
-
   keyvault_name   = "formuleeinsvault"
-  subnet_ip_range = "10.0.4.0/24"
 
   client_id_value       = var.clientId
   client_secret_value   = var.clientSecret
@@ -70,9 +66,8 @@ module "database" {
   source                  = "./modules/database"
   resource_group_name     = azurerm_resource_group.main_resource_group.name
   resource_group_location = azurerm_resource_group.main_resource_group.location
-  vnet_name               = azurerm_virtual_network.virtual_network.name
 }
-*/
+
 module "private_link" {
   source                           = "./modules/private_link"
   virtual_network_id               = module.virtual_network.virtual_network_id
