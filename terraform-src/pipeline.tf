@@ -67,7 +67,7 @@ module "database" {
   resource_group_name     = azurerm_resource_group.main_resource_group.name
   resource_group_location = azurerm_resource_group.main_resource_group.location
 }
-
+/*
 module "private_link" {
   source                           = "./modules/private_link"
   virtual_network_id               = module.virtual_network.virtual_network_id
@@ -78,3 +78,4 @@ module "private_link" {
   private_link_enabled_resource_id = module.storage_account.storage_account_id
   subresource_names                = ["blob"]
 }
+*/
