@@ -9,7 +9,7 @@ resource "azurerm_mssql_server" "sql_server_for_price_prediction" {
 }
 
 resource "azurerm_mssql_database" "sql_database_for_pandemic_data" {
-  name         = "${local.prefix_database}-forex-price"
+  name         = "${local.prefix_database}-pandemic"
   server_id    = azurerm_mssql_server.sql_server_for_price_prediction.id
   sku_name     = "basic"
 }
