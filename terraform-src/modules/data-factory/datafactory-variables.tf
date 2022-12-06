@@ -8,21 +8,6 @@ variable "resource_group_location" {
   default = "West Europe"
 }
 
-variable "storage_account_name" {
-  type    = string
-  default = "forexpricestorageaccount"
-}
-
-variable "datalake_name" {
-  type    = string
-  default = "datalake"
-}
-
-variable "vnet_name" {
-  type = string
-  default = "my-vnet"
-}
-
 variable "virtual_network_id" {
   type =string
   default = "To be set"

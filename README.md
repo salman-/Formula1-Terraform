@@ -1,4 +1,4 @@
-# pandemic
+# Formula1- Infrastructure
 
 Steps to create a IAS (Infrastructure As Service) based on this repository:
 
