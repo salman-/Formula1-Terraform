@@ -1,4 +1,4 @@
-resource "azurerm_mssql_server" "sql_server_for_price_prediction" {
+resource "azurerm_mssql_server" "sql_server" {
   name                         = "${local.prefix_database_server}-${local.project_name}"
   resource_group_name          = var.resource_group_name
   location                     = var.resource_group_location
@@ -7,8 +7,8 @@ resource "azurerm_mssql_server" "sql_server_for_price_prediction" {
   administrator_login_password = var.database_password
 }
 
-resource "azurerm_mssql_database" "sql_database_for_pandemic_data" {
+resource "azurerm_mssql_database" "sql_database" {
   name         = "${local.prefix_database}-${local.project_name}"
-  server_id    = azurerm_mssql_server.sql_server_for_price_prediction.id
+  server_id    = azurerm_mssql_server.sql_server.id
   sku_name     = "basic"
 }
