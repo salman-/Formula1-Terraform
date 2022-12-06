@@ -1,16 +1,7 @@
-resource "random_string" "random" {
-  length  = 4
-
-  numeric = false
-  special = false
-  upper   = false
-  lower   = true
-}
-
 data "azurerm_client_config" "current" {}
 
 resource "azurerm_key_vault" "key_vault" {
-  name                        = format("%s-%s", var.keyvault_name, random_string.random.result)
+  name                        = "${var.project_name}-keyvault"
   location                    = var.resource_group_location
   resource_group_name         = var.resource_group_name
   enabled_for_disk_encryption = true
@@ -39,31 +30,6 @@ resource "azurerm_key_vault" "key_vault" {
       "Recover",
       "List"
     ]
-
   }
 
-}
-
-resource "azurerm_key_vault_secret" "client_id" {
-  name         = "client-id"
-  value        = var.client_id_value
-  key_vault_id = azurerm_key_vault.key_vault.id
-}
-
-resource "azurerm_key_vault_secret" "client_secret" {
-  name         = "client-secret"
-  value        = var.client_secret_value
-  key_vault_id = azurerm_key_vault.key_vault.id
-}
-
-resource "azurerm_key_vault_secret" "subscription_id" {
-  name         = "subscription-id"
-  value        = var.subscription_id_value
-  key_vault_id = azurerm_key_vault.key_vault.id
-}
-
-resource "azurerm_key_vault_secret" "tenant_id" {
-  name         = "tenant-id"
-  value        = var.tenant_id_value
-  key_vault_id = azurerm_key_vault.key_vault.id
 }
