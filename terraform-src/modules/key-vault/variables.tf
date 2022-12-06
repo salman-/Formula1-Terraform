@@ -8,23 +8,6 @@ variable "resource_group_location" {
   default = "West Europe"
 }
 
-
-variable "keyvault_name" {
-  type =string
-}
-
-variable "client_id_value" {
-  type =string
-}
-
-variable "client_secret_value" {
-  type =string
-}
-
-variable "subscription_id_value" {
-  type =string
-}
-
-variable "tenant_id_value" {
-  type =string
+variable "project_name" {
+  default = "project_name"
 }

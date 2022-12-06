@@ -4,9 +4,6 @@ provider "azurerm" {
     resource_group {
       prevent_deletion_if_contains_resources = false
     }
-    key_vault {
-      purge_soft_delete_on_destroy = true
-    }
   }
 }
 
@@ -54,16 +51,12 @@ module "datafactory" {
 module "keyvault" {
   source = "./modules/key-vault"
 
-  keyvault_name   = "formuleeinsvault"
-
-  client_id_value       = var.clientId
-  client_secret_value   = var.clientSecret
-  subscription_id_value = var.subscriptionId
-  tenant_id_value       = var.tenantId
+  keyvault_name   = "formula1"
 }
 
 module "database" {
   source                  = "./modules/database"
+
   resource_group_name     = azurerm_resource_group.main_resource_group.name
   resource_group_location = azurerm_resource_group.main_resource_group.location
 }
