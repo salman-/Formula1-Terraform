@@ -17,8 +17,3 @@ resource "azurerm_storage_data_lake_gen2_filesystem" "processed_data_storage" {
   name               = "processeddata"
   storage_account_id = azurerm_storage_account.storage_account.id
 }
-
-resource "azurerm_storage_container" "config_file_container" {
-  name                 = "urlofdatafiles"
-  storage_account_name = azurerm_storage_account.storage_account.name
-}
