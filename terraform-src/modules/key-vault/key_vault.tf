@@ -31,5 +31,8 @@ resource "azurerm_key_vault" "key_vault" {
       "List"
     ]
   }
+  lifecycle {
+    prevent_destroy = true
+  }
 
 }

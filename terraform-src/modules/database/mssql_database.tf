@@ -5,10 +5,18 @@ resource "azurerm_mssql_server" "sql_server" {
   version                      = "12.0"
   administrator_login          = var.database_username
   administrator_login_password = var.database_password
+
+  lifecycle {
+    prevent_destroy = true
+  }
+
+  timeouts {
+    create = "20"
+  }
 }
 
 resource "azurerm_mssql_database" "sql_database" {
-  name         = "${local.prefix_database}-${var.project_name}"
-  server_id    = azurerm_mssql_server.sql_server.id
-  sku_name     = "Basic"
+  name      = "${local.prefix_database}-${var.project_name}"
+  server_id = azurerm_mssql_server.sql_server.id
+  sku_name  = "Basic"
 }
