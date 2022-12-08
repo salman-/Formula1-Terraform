@@ -11,7 +11,10 @@ variable "resource_group_location" {
 locals {
   prefix_database = "database"
   prefix_database_server = "mssql-server"
-  project_name = "formulaeins"
+}
+
+variable "project_name" {
+  default = "formulaeins"
 }
 
 variable "database_username" {

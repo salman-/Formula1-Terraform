@@ -26,9 +26,9 @@ variable "network_ip_range" {
   default = ""
 }
 
-variable "username" {
+variable "virtual_machine_username" {
   default = ""
 }
-variable "password" {
+variable "virtual_machine_password" {
   default = ""
 }
