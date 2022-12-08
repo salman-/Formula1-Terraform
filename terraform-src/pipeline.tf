@@ -1,11 +1,15 @@
-provider "azurerm" {
+terraform {
 
-  features {
-    key_vault {
-      recover_soft_deleted_key_vaults = true
-      recover_soft_deleted_keys       = true
-    }
+  backend "azurerm" {
+    resource_group_name  = "RG-Terraform-on-Azure"
+    storage_account_name = "formuleinsstorage"
+    container_name       = "stateholder"
+    key                  = "terraform.tfstate"
   }
+}
+
+provider "azurerm" {
+   features {}
 }
 
 resource "azurerm_resource_group" "main_resource_group" {
@@ -52,8 +56,8 @@ module "keyvault" {
   source = "./modules/key-vault"
 
   project_name = "formulaeins"
-}
-*/
+}*/
+
 module "database" {
   source = "./modules/database"
 
