@@ -64,7 +64,7 @@ module "database" {
   project_name = "formulaeins"
 }
 
-
+/*
 # Storage account private link
 module "private_link" {
   source                           = "./modules/private_link"
@@ -75,4 +75,4 @@ module "private_link" {
   zone_name                        = azurerm_private_dns_zone.dns_zone.name
   private_link_enabled_resource_id = module.storage_account.storage_account_id
   subresource_names                = ["blob"]
-}
+}*/
