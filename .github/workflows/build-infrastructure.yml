@@ -69,6 +69,10 @@ jobs:
         run: terraform import azurerm_resource_group.main_resource_group "/subscriptions/${{env.ARM_SUBSCRIPTION_ID}}/resourceGroups/RG-Terraform-on-Azure"
         working-directory: ${{env.ROOT_PATH}}
 
+      - name: Import state of Storage-account which holds the state
+        run: terraform import  module.storage_account.azurerm_storage_account.storage_account "/subscriptions/48ee300d-8738-496a-9366-1271ebefc1e6/resourceGroups/RG-Terraform-on-Azure/providers/Microsoft.Storage/storageAccounts/formuleinsstorage"
+        working-directory: ${{env.ROOT_PATH}}
+
       - name: Terraform Apply
         run: terraform apply -auto-approve -parallelism=${{env.NUMBER_OF_CONCURRENT_THREADS}} -var="pipeline_database_username=${{env.DATABASE_USERNAME}}" -var="pipeline_database_password=${{env.DATABASE_PASSWORD}}"  -var="pipeline_virtual_machine_username=${{env.VIRTUAL_MACHINE_USERNAME}}" -var="pipeline_virtual_machine_password=${{env.VIRTUAL_MACHINE_PASSWORD}}"
         working-directory: ${{env.ROOT_PATH}}
