@@ -9,3 +9,7 @@ output "virtual_network_ip_range" {
 output "virtual_network_id" {
   value = azurerm_virtual_network.virtual_network.id
 }
+
+output "virtual_subnet_id" {
+  value = azurerm_subnet.custom_subnets.id
+}
