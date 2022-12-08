@@ -55,18 +55,6 @@ jobs:
         run: terraform fmt
         working-directory: ${{env.ROOT_PATH}}
 
-      # Destroy all existing resources
-      - name: Terraform Pull the states
-        run: terraform state pull | sc terraform.tfstate
-        working-directory: ${{env.ROOT_PATH}}
-
-      # Destroy all existing resources
-      - name: Terraform Destroy
-        run: terraform destroy -auto-approve -parallelism=5
-        working-directory: ${{env.ROOT_PATH}}
-
-
-
       # Generates an execution plan for Terraform
       - name: Terraform Plan
         run: terraform plan -input=false
