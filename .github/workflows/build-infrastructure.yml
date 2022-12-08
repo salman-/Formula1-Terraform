@@ -57,7 +57,7 @@ jobs:
 
       # Destroy all existing resources
       - name: Terraform Pull the states
-        run: terraform state pull
+        run: terraform state pull | sc terraform.tfstate
         working-directory: ${{env.ROOT_PATH}}
 
       # Destroy all existing resources
