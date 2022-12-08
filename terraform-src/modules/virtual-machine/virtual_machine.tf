@@ -25,7 +25,7 @@ resource "azurerm_linux_virtual_machine" "example" {
 }
 
 resource "azurerm_network_interface" "virtual_machine_network_interface" {
-  name                = "vm-nic"
+  name                = "vm_nic"
   location            = var.resource_group_location
   resource_group_name = var.resource_group_name
 
@@ -38,7 +38,7 @@ resource "azurerm_network_interface" "virtual_machine_network_interface" {
 }
 
 resource "azurerm_public_ip" "vm_public_ip" {
-  name                = "vm-public-ip-for-rdp"
+  name                = "vm-public-ip"
   location            = var.resource_group_location
   resource_group_name = var.resource_group_name
   allocation_method   = "Static"
