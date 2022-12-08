@@ -9,6 +9,20 @@ Steps to create a IAS (Infrastructure As Service) based on this repository:
 2.Add the `clientId`,`clientSecret`,`subscriptionId` and the `tenantId` to the secrets of your repository.
 
 
+How to use this repository ?
+
+1. Clone the repository
+2. For the very first time import the state of resource-group and storage account into the state file using the below commands:
+
+```
+terraform import azurerm_resource_group.main_resource_group "/subscriptions/YOUR-SUBSCRIPTIONID/RG-Terraform-on-Azure"
+
+
+terraform import  module.storage_account.azurerm_storage_account.storage_account "/subscriptions/YOUR-SUBSCRIPTIONID/resourceGroups/RG-Terraform-on-Azure/providers/Microsoft.Storage/storageAccounts/formuleinsstorage"
+```
+Please note you only need to import these states only once.
+
+
 
 ## Problems
 
