@@ -47,12 +47,12 @@ module "databricks" {
 module "datafactory" {
   source = "./modules/data-factory"
 }
-/*
+
 module "keyvault" {
   source = "./modules/key-vault"
 
   project_name = "formulaeins"
-}*/
+}
 
 module "database" {
   source = "./modules/database"
