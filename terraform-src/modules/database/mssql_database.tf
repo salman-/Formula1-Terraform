@@ -10,5 +10,5 @@ resource "azurerm_mssql_server" "sql_server" {
 resource "azurerm_mssql_database" "sql_database" {
   name         = "${local.prefix_database}-${var.project_name}"
   server_id    = azurerm_mssql_server.sql_server.id
-  sku_name     = "basic"
+  sku_name     = "Basic"
 }
