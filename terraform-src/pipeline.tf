@@ -9,7 +9,7 @@ terraform {
 }
 
 provider "azurerm" {
-   features {}
+  features {}
 }
 
 resource "azurerm_resource_group" "main_resource_group" {
@@ -21,13 +21,15 @@ module "virtual_network" {
   source                        = "./modules/virtual_network"
   vnet_name                     = "general_virtual_network"
   virtual_network_address_space = "10.0.0.0/16"
+  custom_subnet_ip_range        = "10.0.2.0/24"
 }
 
 module "virtual_machine" {
-  source           = "./modules/virtual-machine"
-  vnet_name        = module.virtual_network.virtual_network_name
-  network_ip_range = module.virtual_network.virtual_network_ip_range
-  subnet_ip_range  = "10.0.1.0/24"
+  source               = "./modules/virtual-machine"
+  vnet_name            = module.virtual_network.virtual_network_name
+  network_ip_range     = module.virtual_network.virtual_network_ip_range
+  subnet_ip_range      = "10.0.1.0/24"
+  bastion_subnet_range = "10.0.3.0/24"
 
   virtual_machine_username = var.pipeline_virtual_machine_username
   virtual_machine_password = var.pipeline_virtual_machine_password
