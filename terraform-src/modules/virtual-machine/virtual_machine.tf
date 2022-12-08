@@ -25,20 +25,6 @@ resource "azurerm_linux_virtual_machine" "example" {
 }
 
 resource "azurerm_network_interface" "virtual_machine_network_interface" {
-  name                = "vm_nic_primary"
-  location            = var.resource_group_location
-  resource_group_name = var.resource_group_name
-
-  ip_configuration {
-    name                          = "internal"
-    subnet_id                     = azurerm_subnet.virtual_network_subnet.id
-    private_ip_address_allocation = "Dynamic"
-    public_ip_address_id          = azurerm_public_ip.vm_public_ip.id
-  }
-}
-
-
-resource "azurerm_network_interface" "virtual_machine_network_interface" {
   name                = "vm_nic"
   location            = var.resource_group_location
   resource_group_name = var.resource_group_name
