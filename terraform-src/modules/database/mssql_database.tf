@@ -11,7 +11,7 @@ resource "azurerm_mssql_server" "sql_server" {
   }
 
   timeouts {
-    create = "20"
+    create = "20m"
   }
 }
 
