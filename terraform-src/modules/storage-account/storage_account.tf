@@ -6,7 +6,7 @@ resource "azurerm_storage_account" "storage_account" {
   account_replication_type        = "LRS"
   account_kind                    = "StorageV2"
   is_hns_enabled                  = "true"
-  allow_nested_items_to_be_public = false
+  #allow_nested_items_to_be_public = false
 }
 
 resource "azurerm_storage_data_lake_gen2_filesystem" "data_lake_storage" {
