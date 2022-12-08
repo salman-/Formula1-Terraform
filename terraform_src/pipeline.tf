@@ -25,7 +25,7 @@ module "virtual_network" {
 }
 
 module "virtual_machine" {
-  source               = "modules/virtual_machine"
+  source               = "./modules/virtual_machine"
   vnet_name            = module.virtual_network.virtual_network_name
   network_ip_range     = module.virtual_network.virtual_network_ip_range
   subnet_ip_range      = "10.0.1.0/24"
@@ -36,13 +36,13 @@ module "virtual_machine" {
 }
 
 module "storage_account" {
-  source               = "modules/storage_account"
+  source               = "./modules/storage_account"
   vnet_name            = module.virtual_network.virtual_network_name
   storage_account_name = "formuleinsstorage"
 }
 
 module "databricks" {
-  source = "modules/data_bricks"
+  source = "./modules/databricks"
 
   resource_group_name     = azurerm_resource_group.main_resource_group.name
   resource_group_location = azurerm_resource_group.main_resource_group.location
@@ -51,11 +51,11 @@ module "databricks" {
 }
 
 module "datafactory" {
-  source = "modules/data_factory"
+  source = "./modules/data_factory"
 }
 
 module "keyvault" {
-  source = "modules/key_vault"
+  source = "./modules/key_vault"
 
   project_name = "formulaeinsabc"
 }
