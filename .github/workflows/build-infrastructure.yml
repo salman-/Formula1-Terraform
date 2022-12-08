@@ -13,6 +13,13 @@ env:
   ARM_CLIENT_SECRET: ${{secrets.AZURE_CLIENT_SECRET}}
   ARM_SUBSCRIPTION_ID: ${{secrets.AZURE_SUBSCRIPTION_ID}}
   ARM_TENANT_ID: ${{secrets.AZURE_TENANT_ID}}
+
+  DATABASE_USERNAME: ${{secrets.DATABASE_USERNAME}}
+  DATABASE_PASSWORD: ${{secrets.DATABASE_PASSWORD}}
+
+  VIRTUAL_MACHINE_USERNAME: ${{secrets.VIRTUAL_MACHINE_USERNAME}}
+  VIRTUAL_MACHINE_PASSWORD: ${{secrets.VIRTUAL_MACHINE_PASSWORD}}
+
   ROOT_PATH: '${{github.workspace}}/terraform-src'
   NUMBER_OF_CONCURRENT_THREADS: 5
 
@@ -63,5 +70,5 @@ jobs:
         working-directory: ${{env.ROOT_PATH}}
 
       - name: Terraform Apply
-        run: terraform apply -auto-approve -parallelism=${{env.NUMBER_OF_CONCURRENT_THREADS}}
+        run: terraform apply -auto-approve -parallelism=${{env.NUMBER_OF_CONCURRENT_THREADS}} -var="pipeline_database_username=${{env.DATABASE_USERNAME}}" -var="pipeline_database_password=${{env.DATABASE_PASSWORD}}"  -var="pipeline_virtual_machine_username=${{env.VIRTUAL_MACHINE_USERNAME}}" -var="pipeline_virtual_machine_password=${{env.VIRTUAL_MACHINE_PASSWORD}}"
         working-directory: ${{env.ROOT_PATH}}
