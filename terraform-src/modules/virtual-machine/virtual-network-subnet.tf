@@ -4,7 +4,7 @@ resource "azurerm_subnet" "virtual_network_subnet" {
   virtual_network_name = var.vnet_name
   address_prefixes     = [var.subnet_ip_range]
 }
-/*
+
 resource "azurerm_network_interface" "virtual_network_nic" {
   name                = "vm_nic"
   resource_group_name = var.resource_group_name
@@ -15,4 +15,4 @@ resource "azurerm_network_interface" "virtual_network_nic" {
     subnet_id                     = azurerm_subnet.virtual_network_subnet.id
     private_ip_address_allocation = "Dynamic"
   }
-}*/
+}
