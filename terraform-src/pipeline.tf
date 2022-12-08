@@ -22,7 +22,7 @@ module "virtual_network" {
   vnet_name                     = "general_virtual_network"
   virtual_network_address_space = "10.0.0.0/16"
 }
-
+/*
 module "virtual_machine" {
   source           = "./modules/virtual-machine"
   vnet_name        = module.virtual_network.virtual_network_name
@@ -32,7 +32,7 @@ module "virtual_machine" {
   virtual_machine_username = var.pipeline_virtual_machine_username
   virtual_machine_password = var.pipeline_virtual_machine_password
 }
-
+*/
 module "storage_account" {
   source               = "./modules/storage-account"
   vnet_name            = module.virtual_network.virtual_network_name
@@ -57,7 +57,7 @@ module "keyvault" {
 
   project_name = "formulaeinsabc"
 }
-/*
+
 module "database" {
   source = "./modules/database"
 
@@ -68,7 +68,7 @@ module "database" {
 
   project_name = "formulaeins"
 }
-*/
+
 /*
 # Storage account private link
 module "private_link" {
