@@ -53,7 +53,7 @@ module "keyvault" {
 
   project_name = "formulaeins"
 }*/
-
+/*
 module "database" {
   source = "./modules/database"
 
@@ -64,7 +64,7 @@ module "database" {
 
   project_name = "formulaeins"
 }
-
+*/
 /*
 # Storage account private link
 module "private_link" {
