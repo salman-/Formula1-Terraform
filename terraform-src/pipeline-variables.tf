@@ -16,22 +16,16 @@ variable "vnet_name" {
   default = "General-Virtual-Network"
 }
 
-variable "clientId" {
-  type    = string
-  default = "dd381b2e-4e26-4a29-96c8-0b625d6ad2e9"
+variable "pipeline_virtual_machine_username" {
+  default = "admin2022"
+}
+variable "pipeline_virtual_machine_password" {
+  default = "AdminInH0me?!"
 }
 
-variable "clientSecret" {
-  type    = string
-  default = "ead9c78c-61e0-44f6-9438-b8f1c5b95ae2"
+variable "pipeline_database_username" {
+  default = "admin2022"
 }
-
-variable "subscriptionId" {
-  type    = string
-  default = "48ee300d-8738-496a-9366-1271ebefc1e6"
-}
-
-variable "tenantId" {
-  type    = string
-  default = "1f2519d6-a33d-4336-abb5-8085bcb587d6"
+variable "pipeline_database_password" {
+  default = "AdminInH0me?!"
 }
