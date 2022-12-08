@@ -33,7 +33,7 @@ module "storage_account" {
   vnet_name            = module.virtual_network.virtual_network_name
   storage_account_name = "formuleinsstorage"
 }
-/*
+
 module "databricks" {
   source = "./modules/data-bricks"
 
@@ -63,8 +63,9 @@ module "database" {
 
   project_name = "formulaeins"
 }
-*/
 
+
+# Storage account private link
 module "private_link" {
   source                           = "./modules/private_link"
   virtual_network_id               = module.virtual_network.virtual_network_id
@@ -75,16 +76,3 @@ module "private_link" {
   private_link_enabled_resource_id = module.storage_account.storage_account_id
   subresource_names                = ["blob"]
 }
-/*
-module "private_link" {
-  source                           = "./modules/private_link"
-  virtual_network_id               = module.virtual_network.virtual_network_id
-  asset_name_which_use_endpoint    = module.database.
-  subnet_id                        = module.storage_account.storage_account_subnet_id
-  name                             = "storage"
-  zone_name                        = azurerm_private_dns_zone.dns_zone.name
-  private_link_enabled_resource_id = module.storage_account.storage_account_id
-  subresource_names                = ["blob"]
-}
-
-*/
