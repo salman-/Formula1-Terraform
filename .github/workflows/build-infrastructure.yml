@@ -56,6 +56,11 @@ jobs:
         working-directory: ${{env.ROOT_PATH}}
 
       # Destroy all existing resources
+      - name: Terraform Pull the states
+        run: terraform state pull
+        working-directory: ${{env.ROOT_PATH}}
+
+      # Destroy all existing resources
       - name: Terraform Destroy
         run: terraform destroy -auto-approve -parallelism=5
         working-directory: ${{env.ROOT_PATH}}
