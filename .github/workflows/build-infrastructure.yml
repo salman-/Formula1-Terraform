@@ -20,7 +20,7 @@ env:
   VIRTUAL_MACHINE_USERNAME: ${{secrets.VIRTUAL_MACHINE_USERNAME}}
   VIRTUAL_MACHINE_PASSWORD: ${{secrets.VIRTUAL_MACHINE_PASSWORD}}
 
-  ROOT_PATH: '${{github.workspace}}/terraform-src'
+  ROOT_PATH: '${{github.workspace}}/terraform_src'
   NUMBER_OF_CONCURRENT_THREADS: 5
 
 jobs:

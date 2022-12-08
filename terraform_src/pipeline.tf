@@ -25,7 +25,7 @@ module "virtual_network" {
 }
 
 module "virtual_machine" {
-  source               = "./modules/virtual-machine"
+  source               = "modules/virtual_machine"
   vnet_name            = module.virtual_network.virtual_network_name
   network_ip_range     = module.virtual_network.virtual_network_ip_range
   subnet_ip_range      = "10.0.1.0/24"
@@ -36,13 +36,13 @@ module "virtual_machine" {
 }
 
 module "storage_account" {
-  source               = "./modules/storage-account"
+  source               = "modules/storage_account"
   vnet_name            = module.virtual_network.virtual_network_name
   storage_account_name = "formuleinsstorage"
 }
 
 module "databricks" {
-  source = "./modules/data-bricks"
+  source = "modules/data_bricks"
 
   resource_group_name     = azurerm_resource_group.main_resource_group.name
   resource_group_location = azurerm_resource_group.main_resource_group.location
@@ -51,11 +51,11 @@ module "databricks" {
 }
 
 module "datafactory" {
-  source = "./modules/data-factory"
+  source = "modules/data_factory"
 }
 
 module "keyvault" {
-  source = "./modules/key-vault"
+  source = "modules/key_vault"
 
   project_name = "formulaeinsabc"
 }
@@ -71,7 +71,7 @@ module "database" {
   project_name = "formulaeins"
 }
 
-/*
+
 # Storage account private link
 module "private_link" {
   source                           = "./modules/private_link"
@@ -82,4 +82,4 @@ module "private_link" {
   zone_name                        = azurerm_private_dns_zone.dns_zone.name
   private_link_enabled_resource_id = module.storage_account.storage_account_id
   subresource_names                = ["blob"]
-}*/
+}
