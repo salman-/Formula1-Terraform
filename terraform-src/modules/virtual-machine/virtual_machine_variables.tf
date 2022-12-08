@@ -15,11 +15,11 @@ variable "vnet_name" {
 
 variable "subnet_ip_range" {
   type =string
-  default = "10.0.2.0/24"
+  default = "10.0.1.0/24"
 }
 
-variable "storage_account_name" {
-  default = ""
+variable "bastion_subnet_range" {
+    default = "10.0.2.0/24"
 }
 
 variable "network_ip_range" {
