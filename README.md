@@ -9,7 +9,7 @@ The **Formula1-Terraform** repository only creates the needed infrastructures in
 
 ## Technologies used for the project
 
-| Name                 | Version    |
+| Technology           | Version    |
 |--------------------- |------------|
 | Terraform            | v1.2.5     | 
 | Provider: azurerm    | v3.31.0    |
@@ -28,9 +28,9 @@ Here are steps to create the needed infrastructure using this repository:
 
 3. Clone the repository.
 
-3. This project works by **remote state**. For the very first time you should *manually create a resource-group and storage-account*. Call the storage-account `formuleinsstorage` and it should contain one container which is called `stateholder`. 
+4. This project works by **remote state**. For the very first time you should *manually create a resource-group and storage-account*. Call the storage-account `formuleinsstorage` and it should contain one container which is called `stateholder`. 
 
-4. Import the state of resource-group and storage-account into the state file using the below commands:
+5. Import the state of resource-group and storage-account into the state file using the below commands:
 
 ```
 terraform import azurerm_resource_group.main_resource_group "/subscriptions/YOUR-SUBSCRIPTIONID/RG-Terraform-on-Azure"
@@ -39,7 +39,7 @@ terraform import  module.storage_account.azurerm_storage_account.storage_account
 ```
 Please note you only need to import these states only once.
 
-4. `Terraform apply` command has to provide all the needed secrets to the provider as below.
+6. `Terraform apply` command has to provide all the needed secrets to the provider as below.
 
 ```
 terraform apply -auto-approve -parallelism= NUMBER_OF_CONCURRENT_THREADS -var="pipeline_database_username=DATABASE_USERNAME"
@@ -50,7 +50,7 @@ terraform apply -auto-approve -parallelism= NUMBER_OF_CONCURRENT_THREADS -var="p
 -var="subscription_id_value=ARM_SUBSCRIPTION_ID"
 -var="tenant_id_value=ARM_TENANT_ID"
 ```
-
+7. After your first successful run, you can always use the existing workflow to add more infrastructure on top of current ones.
 
 ## Problems
 
