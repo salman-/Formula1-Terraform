@@ -19,18 +19,29 @@ The **Formula1-Terraform** repository only creates the needed infrastructures in
 
 Here are steps to create the needed infrastructure using this repository:
 
-1. Create a Active Directory and create a Service Principal role using the below command:
+1. Create a Active Directory and create a Service Principal role using the below command and make sure you keep the clientSecret and the other important data:
 
 `az ad sp create-for-rbac --name "formulaeins" --role contributor --scopes "/subscriptions/YOUR-SUBSCRIPTION-ID/resourceGroups/YOUR-RESOURCE-GROUP-NAME" --sdk-auth`
 
 2. Add all needed secrets of pipeline into repository's secret (`Setting -> Secrets -> Actions`). These secrets are:
- `DATABASE_USERNAME,DATABASE_PASSWORD,VIRTUAL_MACHINE_USERNAME,VIRTUAL_MACHINE_PASSWORD,ARM_CLIENT_ID,ARM_CLIENT_SECRET,ARM_SUBSCRIPTION_ID,ARM_TENANT_ID`
+ ```
+ DATABASE_USERNAME,
+ DATABASE_PASSWORD,
+ VIRTUAL_MACHINE_USERNAME,
+ VIRTUAL_MACHINE_PASSWORD,
+ ARM_CLIENT_ID,
+ ARM_CLIENT_SECRET,
+ ARM_SUBSCRIPTION_ID,
+ ARM_TENANT_ID`
+```
 
-3. Clone the repository.
+3. This project works by **remote state**. Before you run the project for the first time, you should *manually create a resource-group and storage-account*. Call the storage-account `formuleinsstorage` and it should contain one container which is called `stateholder`. If you keep this storage-account in the same resource group which contains all the other infrastructres, then you need to import the state of these two resources in the next steps, otherwise there is no need to import the states of them.
 
-4. This project works by **remote state**. For the very first time you should *manually create a resource-group and storage-account*. Call the storage-account `formuleinsstorage` and it should contain one container which is called `stateholder`. 
+4. Clone the repository.
 
-5. Import the state of resource-group and storage-account into the state file using the below commands:
+5. Run the project by `terraform init` and `terraform apply`. Note the project will fails for the first time, in case the `formuleinsstorage` is in the same resource-group of all other resources.
+
+6. Import the state of resource-group and storage-account into the state file using the below commands:
 
 ```
 terraform import azurerm_resource_group.main_resource_group "/subscriptions/YOUR-SUBSCRIPTIONID/RG-Terraform-on-Azure"
@@ -39,7 +50,7 @@ terraform import  module.storage_account.azurerm_storage_account.storage_account
 ```
 Please note you only need to import these states only once.
 
-6. `Terraform apply` command has to provide all the needed secrets to the provider as below.
+7. After your first successful run, you can always use the existing workflow to add more infrastructure on top of current ones or run the code using the below command:
 
 ```
 terraform apply -auto-approve -parallelism= NUMBER_OF_CONCURRENT_THREADS -var="pipeline_database_username=DATABASE_USERNAME"
@@ -50,7 +61,6 @@ terraform apply -auto-approve -parallelism= NUMBER_OF_CONCURRENT_THREADS -var="p
 -var="subscription_id_value=ARM_SUBSCRIPTION_ID"
 -var="tenant_id_value=ARM_TENANT_ID"
 ```
-7. After your first successful run, you can always use the existing workflow to add more infrastructure on top of current ones.
 
 ## Problems
 
