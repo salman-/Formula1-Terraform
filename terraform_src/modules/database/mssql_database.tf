@@ -6,10 +6,6 @@ resource "azurerm_mssql_server" "sql_server" {
   administrator_login          = var.database_username
   administrator_login_password = var.database_password
 
-  lifecycle {
-    prevent_destroy = true
-  }
-
   timeouts {
     create = "20m"
   }
