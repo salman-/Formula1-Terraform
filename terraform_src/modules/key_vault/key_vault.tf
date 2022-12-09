@@ -12,15 +12,15 @@ resource "azurerm_key_vault" "key_vault" {
   sku_name = "standard"
 
   access_policy {
-    tenant_id = data.azurerm_client_config.current.tenant_id
-    object_id = data.azurerm_client_config.current.object_id
+    tenant_id = var.tenant_id_value
+    object_id = "6d4f73a7-cd54-420e-a7d4-6dbe7ba690ef"
 
     key_permissions = [
       "Create",
       "Get",
       "Delete",
       "Purge",
-      "List"
+      "List",
     ]
 
     secret_permissions = [
@@ -29,7 +29,7 @@ resource "azurerm_key_vault" "key_vault" {
       "Delete",
       "Purge",
       "Recover",
-      "List"
+      "List",
     ]
   }
 }
