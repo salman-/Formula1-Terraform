@@ -12,8 +12,9 @@ resource "azurerm_key_vault" "key_vault" {
   sku_name = "standard"
 
   access_policy {
-    tenant_id = var.tenant_id_value
-    object_id = "6d4f73a7-cd54-420e-a7d4-6dbe7ba690ef"
+  key_vault_id = azurerm_key_vault.key_vault.id
+  tenant_id    = data.azurerm_client_config.current.tenant_id
+  object_id    = data.azurerm_client_config.current.object_id
 
     key_permissions = [
       "Create",
