@@ -17,22 +17,8 @@ resource "azurerm_key_vault_access_policy" "example" {
   tenant_id    = data.azurerm_client_config.current.tenant_id
   object_id    = data.azurerm_client_config.current.object_id
 
-    key_permissions = [
-      "Create",
-      "Get",
-      "Delete",
-      "Purge",
-      "List",
-    ]
-
     secret_permissions = [
-      "Set",
-      "Get",
-      "Delete",
-      "Purge",
-      "Recover",
-      "List",
-    ]
+      "Set", "Get", "Delete", "Purge", "List",  ]
 }
 
 resource "azurerm_key_vault_secret" "client_id" {
