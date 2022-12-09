@@ -20,6 +20,7 @@ resource "azurerm_key_vault" "key_vault" {
       "Get",
       "Delete",
       "Purge",
+      "List"
     ]
 
     secret_permissions = [
@@ -30,9 +31,6 @@ resource "azurerm_key_vault" "key_vault" {
       "Recover",
       "List"
     ]
-  }
-  lifecycle {
-    prevent_destroy = true
   }
 }
 
