@@ -74,5 +74,5 @@ jobs:
       #  working-directory: ${{env.ROOT_PATH}}
 
       - name: Terraform Apply
-        run: terraform apply -auto-approve -parallelism=${{env.NUMBER_OF_CONCURRENT_THREADS}} -var="pipeline_database_username=${{env.DATABASE_USERNAME}}" -var="pipeline_database_password=${{env.DATABASE_PASSWORD}}"  -var="pipeline_virtual_machine_username=${{env.VIRTUAL_MACHINE_USERNAME}}" -var="pipeline_virtual_machine_password=${{env.VIRTUAL_MACHINE_PASSWORD}}"
+        run: terraform apply -auto-approve -parallelism=${{env.NUMBER_OF_CONCURRENT_THREADS}} -var="pipeline_database_username=${{env.DATABASE_USERNAME}}" -var="pipeline_database_password=${{env.DATABASE_PASSWORD}}"  -var="pipeline_virtual_machine_username=${{env.VIRTUAL_MACHINE_USERNAME}}" -var="pipeline_virtual_machine_password=${{env.VIRTUAL_MACHINE_PASSWORD}}" -var="client_id_value=${{env.ARM_CLIENT_ID}}" -var="client_secret_value=${{env.ARM_CLIENT_SECRET}}" -var="subscription_id_value=${{env.ARM_SUBSCRIPTION_ID}}" -var="tenant_id_value=${{env.ARM_TENANT_ID}}"
         working-directory: ${{env.ROOT_PATH}}

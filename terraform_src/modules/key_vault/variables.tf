@@ -11,3 +11,20 @@ variable "resource_group_location" {
 variable "project_name" {
   default = "project_name"
 }
+
+
+variable "client_id_value" {
+  default = ""
+}
+
+variable "client_secret_value" {
+  default = ""
+}
+
+variable "subscription_id_value" {
+  default = ""
+}
+
+variable "tenant_id_value" {
+  default = ""
+}

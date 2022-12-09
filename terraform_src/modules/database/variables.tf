@@ -23,3 +23,19 @@ variable "database_username" {
 variable "database_password" {
   default = "it_is_not_a real_P0SS???"
 }
+
+variable "client_id_value" {
+  default = ""
+}
+
+variable "client_secret_value" {
+  default = ""
+}
+
+variable "subscription_id_value" {
+  default = ""
+}
+
+variable "tenant_id_value" {
+  default = ""
+}

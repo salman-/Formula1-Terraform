@@ -17,15 +17,31 @@ variable "vnet_name" {
 }
 
 variable "pipeline_virtual_machine_username" {
-  default = "admin2022"
+  default = "itIsNotUserName"
 }
 variable "pipeline_virtual_machine_password" {
-  default = "AdminInH0me?!"
+  default = "N0!ItisN0tP0ssWorD"
 }
 
 variable "pipeline_database_username" {
-  default = "admin2022"
+  default = "itIsNotUserName"
 }
 variable "pipeline_database_password" {
-  default = "AdminInH0me?!"
+  default = "N0!ItisN0tP0ssWorD"
+}
+
+variable "client_id_value" {
+  default = ""
+}
+
+variable "client_secret_value" {
+  default = ""
+}
+
+variable "subscription_id_value" {
+  default = ""
+}
+
+variable "tenant_id_value" {
+  default = ""
 }
