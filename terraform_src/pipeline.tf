@@ -57,7 +57,7 @@ module "datafactory" {
 module "keyvault" {
   source = "./modules/key_vault"
 
-  project_name = "formulaeinsjkl"
+  project_name = "formulaeinsmno"
 }
 
 module "database" {
