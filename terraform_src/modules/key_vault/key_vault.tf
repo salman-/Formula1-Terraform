@@ -10,8 +10,9 @@ resource "azurerm_key_vault" "key_vault" {
   purge_protection_enabled    = false
 
   sku_name = "standard"
+}
 
-  access_policy {
+resource "azurerm_key_vault_access_policy" "example" {
   key_vault_id = azurerm_key_vault.key_vault.id
   tenant_id    = data.azurerm_client_config.current.tenant_id
   object_id    = data.azurerm_client_config.current.object_id
@@ -32,7 +33,6 @@ resource "azurerm_key_vault" "key_vault" {
       "Recover",
       "List",
     ]
-  }
 }
 
 resource "azurerm_key_vault_secret" "client_id" {
