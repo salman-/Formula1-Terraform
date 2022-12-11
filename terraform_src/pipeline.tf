@@ -23,7 +23,7 @@ module "virtual_network" {
   virtual_network_address_space = "10.0.0.0/16"
   custom_subnet_ip_range        = "10.0.2.0/24"
 }
-
+/*
 module "virtual_machine" {
   source               = "./modules/virtual_machine"
   vnet_name            = module.virtual_network.virtual_network_name
@@ -34,7 +34,7 @@ module "virtual_machine" {
   virtual_machine_username = var.pipeline_virtual_machine_username
   virtual_machine_password = var.pipeline_virtual_machine_password
 }
-
+*/
 module "storage_account" {
   source               = "./modules/storage_account"
   vnet_name            = module.virtual_network.virtual_network_name
