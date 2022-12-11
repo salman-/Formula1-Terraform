@@ -19,7 +19,7 @@ The **Formula1-Terraform** repository only creates the needed infrastructures in
 
 Here are steps to create the needed infrastructure using this repository:
 
-1. Create a Active Directory and create a Service Principal role using the below command and make sure you keep the clientSecret and the other important data:
+1. Create a Service Principal with role `contributor` in the `Subscription` level using the below command and make sure you keep the clientSecret and the other important data:
 
 `az ad sp create-for-rbac --name "formulaeins" --role contributor --scopes "/subscriptions/YOUR-SUBSCRIPTION-ID/resourceGroups/YOUR-RESOURCE-GROUP-NAME" --sdk-auth`
 
