@@ -8,13 +8,14 @@ resource "azurerm_data_factory" "data_factory" {
     type = "SystemAssigned"
   }
 
+  /*
   github_configuration {
     account_name    = "salman-"
     branch_name     = "main"
     git_url         = "https://github.com/salman-/Formula1-DataFactory"
     repository_name = "Formula1-DataFactory"
     root_folder     = "/"
-  }
+  } */
 
   lifecycle {
     prevent_destroy = true
