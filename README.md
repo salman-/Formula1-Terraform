@@ -64,4 +64,5 @@ terraform apply -auto-approve -parallelism= NUMBER_OF_CONCURRENT_THREADS -var="p
 
 ## Problems
 
-Sensitive services such as database, storage account should be protected via private link
+1. Sensitive services such as database, storage account should be protected via private link
+2. The ip in the `azurerm_mssql_firewall_rule` of database should change dynamically
