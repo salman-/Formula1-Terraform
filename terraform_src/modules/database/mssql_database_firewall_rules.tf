@@ -6,7 +6,7 @@ resource "azurerm_mssql_firewall_rule" "my_ip_rule" {
 }
 
 resource "azurerm_mssql_firewall_rule" "ip_rule_for_datafactory" {
-  name                = "my_ip_rule"
+  name                = "ip_rule_for_datafactory"
   server_id           = azurerm_mssql_server.sql_server.id
   start_ip_address    = "40.74.27.172"
   end_ip_address      = "40.74.27.172"
