@@ -1,8 +1,8 @@
 resource "azurerm_mssql_firewall_rule" "my_ip_rule" {
   name                = "my_ip_rule"
   server_id           = azurerm_mssql_server.sql_server.id
-  start_ip_address    = "77.183.112.220"
-  end_ip_address      = "77.183.112.220"
+  start_ip_address    = "78.54.131.237"
+  end_ip_address      = "78.54.131.237"
 }
 
 resource "azurerm_mssql_firewall_rule" "virtual_network_rule" {
