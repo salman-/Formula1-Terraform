@@ -40,7 +40,7 @@ module "storage_account" {
   vnet_name            = module.virtual_network.virtual_network_name
   storage_account_name = "formuleinsstorage"
 }
-
+/*
 module "databricks" {
   source = "./modules/databricks"
 
@@ -49,7 +49,7 @@ module "databricks" {
 
   databricks_name = "formulaeins"
 }
-
+*/
 module "datafactory" {
   source = "./modules/data_factory"
 }
