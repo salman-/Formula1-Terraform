@@ -59,7 +59,7 @@ module "keyvault" {
 
   project_name = "formulaeinspqr"
 }
-/*
+
 module "database" {
   source = "./modules/database"
 
@@ -70,7 +70,7 @@ module "database" {
 
   project_name = "formulaeins"
 }
-*/
+
 /*
 # Storage account private link
 module "private_link" {
