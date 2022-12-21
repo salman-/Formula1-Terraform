@@ -62,6 +62,11 @@ terraform apply -auto-approve -parallelism= NUMBER_OF_CONCURRENT_THREADS -var="p
 -var="tenant_id_value=ARM_TENANT_ID"
 ```
 
+## The following picture shows how infrastructures are connected to each other
+
+![Terraform infrastructure](https://user-images.githubusercontent.com/4312244/208876901-fa251ed0-0589-4a28-b380-3345e77df29d.png)
+
+
 ## Problems
 
 1. Sensitive services such as database, storage account should be protected via private link
